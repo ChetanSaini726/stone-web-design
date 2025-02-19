@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic Color Scheme Website</title>
+  <style>
+    /* Base styling to simulate a paper background */
+    body {
+      background-color: #fdf6e3; /* Light paper-like color */
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Navigation bar styling */
+    .nav-bar {
+      background-color: #9966CC; /* Default amethyst tint */
+      padding: 15px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+    }
+    /* Container to hold both elements side by side */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: calc(100vh - 120px); /* Adjusting for nav and switcher */
+      padding: 20px;
+    }
+    /* Stone element styling */
+    .stone {
+      background-color: #9966CC; /* Default amethyst color */
+      width: 220px;
+      height: 300px;
+      transform: rotate(-5deg);
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+      font-family: 'Cursive', sans-serif;
+      margin-left: 20px;
+    }
+    /* Color bar element styling */
+    .color-bar {
+      background-color: #9966CC; /* Default matching color */
+      width: 220px;
+      height: 300px;
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      margin-right: 20px;
+      padding: 10px;
+    }
+    /* Color switcher styling */
+    .color-switcher {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .color-switcher button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="nav-bar">Navigation Bar</div>
+  
+  <!-- Main content container -->
+  <div class="container">
+    <!-- Amethyst-like stone on the left -->
+    <div class="stone">
+      Stone Title
+    </div>
+    
+    <!-- Color bar on the right with centered title and subtitle -->
+    <div class="color-bar">
+      <h1>Color Bar Title</h1>
+      <h2>Subtitle</h2>
+    </div>
+  </div>
+  
+  <!-- Color switcher to change tints -->
+  <div class="color-switcher">
+    <button onclick="changeColor('emerald')" style="background-color: #50C878; color: white;">Emerald</button>
+    <button onclick="changeColor('amber')" style="background-color: #FFBF00; color: black;">Amber</button>
+    <button onclick="changeColor('ruby')" style="background-color: #E0115F; color: white;">Ruby</button>
+  </div>
+  
+  <!-- JavaScript for dynamic color switching -->
+  <script>
+    function changeColor(color) {
+      let colorCode;
+      switch(color) {
+        case 'emerald':
+          colorCode = '#50C878';
+          break;
+        case 'amber':
+          colorCode = '#FFBF00';
+          break;
+        case 'ruby':
+          colorCode = '#E0115F';
+          break;
+        default:
+          colorCode = '#9966CC';
+      }
+      // Update tints for stone, nav bar, and color bar
+      document.querySelector('.stone').style.backgroundColor = colorCode;
+      document.querySelector('.nav-bar').style.backgroundColor = colorCode;
+      document.querySelector('.color-bar').style.backgroundColor = colorCode;
+    }
+  </script>
+</body>
+</html>
